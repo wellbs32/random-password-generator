@@ -8,7 +8,9 @@ Email: wellbscontato@gmail.com
 
 This code should be used in the terminal.
 
-`python main.py`
+```
+python main.py
+```
 
 Later on, a download setup will be implemented.
 
