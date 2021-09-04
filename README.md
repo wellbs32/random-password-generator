@@ -6,8 +6,6 @@ Email: wellbscontato@gmail.com
 
 ## Usage
 
----
-
 This code should be used in the terminal.
 
 `python main.py`
