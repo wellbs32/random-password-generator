@@ -8,24 +8,24 @@ Email: wellbscontato@gmail.com
 
 ---
 
-This code should be used in terminal.
+This code should be used in the terminal.
 
 `python main.py`
 
-Later on a download setup will be implemented.
+Later on, a download setup will be implemented.
 
 ## Features
 
----
+Here will be shown some features the program has.
 
 ### Length
 
-In this program you can choose the length of the password ranging from 8 to 48 characteres.
+In this program, you can choose the length of the password ranging from 8 to 48 characters.
 
 ![Length Screenshot](readme_images/length_screenshot.png)
 
 ### Others Characters
 
-Lowercase characteres and digits are used by default, but you can implement symbols and uppercase characteres to your password if you want.
+Lowercase characters and digits are used by default, but you can implement symbols and uppercase characters to your password if you want.
 
 ![Other Characteres Selection](readme_images/chartypes_screenshot.png)
