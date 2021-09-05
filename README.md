@@ -22,10 +22,10 @@ Here will be shown some features the program has.
 
 In this program, you can choose the length of the password ranging from 8 to 48 characters.
 
-![Length Screenshot](readme_images/length_screenshot.png)
+![Length Screenshot](/images/length_screenshot.png)
 
 ### Others Characters
 
 Lowercase characters and digits are used by default, but you can implement symbols and uppercase characters to your password if you want.
 
-![Other Characteres Selection](readme_images/chartypes_screenshot.png)
+![Other Characteres Selection](/images/chartypes_screenshot.png)
