@@ -32,6 +32,6 @@ Lowercase characters and digits are used by default, but you can implement symbo
 
 ### Remake the Password
 
-After the the output is shown, you can choose if want to remake the password.
+After the output is shown, you can choose if want to remake the password.
 
 ![Remake Password](/images/remake_screenshot.png)
