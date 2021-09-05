@@ -3,20 +3,18 @@ import random
 
 # --- Defining Variables ---
 
-password_list = []
-
 LOWER_ALPHABET = list(string.ascii_lowercase)
 DIGITS = list(string.digits)
 UPPER_ALPHABET = list(string.ascii_uppercase)
 
 SYMBOLS = list(string.punctuation)
-SYMBOLS_EXCLUDE = ['"', "'", "(", ")", ",", ".", ":", ";", "[", "]", "|", "`", "{", "}"]
-for x in SYMBOLS_EXCLUDE:
+SYMBOLS_DELETE = ['"', "'", "(", ")", ",", ".", ":", ";", "[", "]", "|", "`", "{", "}"]
+for x in SYMBOLS_DELETE:
   SYMBOLS.remove(x)
 
-CHAR_TYPES = [LOWER_ALPHABET, DIGITS] # Lower case letters and digits are used as default
+CHAR_TYPES = [LOWER_ALPHABET, DIGITS] # characters used as default
 
-# --- Program Intro ---
+# --- PROGRAM INTRO ---
 
 print("""    
 #############################################################
@@ -26,14 +24,14 @@ print("""
 #############################################################
 #                                                           #
 #          This is my very first project with Python        #
-#    Lowercase characteres and digits is used as default    #
+#   Lowercase characteres and digits are used as default    #
 #                                                           #
 #############################################################
 """)
 
-# --- Password Length and Characteres Selection ---
 
-# Length Question
+
+# --- LENGTH QUESTION ---
 
 while True:
   print("Password Length (Min: 8 / Max: 48):")
@@ -45,11 +43,11 @@ while True:
     else:
         print("\nYou should insert a number between 8 and 16.\n")
   except ValueError:
-    # In case of the user insert a value that cannot be turned into a 'num' type
+    # In case of the user insert a value that cannot be turned into a 'int' type
     
     print("\nYou should insert a NUMBER between 8 and 16.\n")
 
-# Uppercase and Symbols Question Function
+# --- UPPERCASE AND SYMBOLS QUESTION FUNCTION ---
 
 def question_checker(phrase, char_type):
     """Check if the user inserts a valid value on the upper case and symbols question.
@@ -74,26 +72,49 @@ def question_checker(phrase, char_type):
     char_assignment(answer, char_type)
 
 
-# Assigning Uppercase and/or Symbols characteres into the CHAR_TYPES list.
+# --- ASSIGNING UPPERCASE AND/OR SYMBOLS CHARACTERS INTO THE CHAR_TYPES LIST. ---
 
 question_checker("Do you want uppercase letters? [Yes/No]", UPPER_ALPHABET)
 question_checker("Do you want symbols? [Yes/No]", SYMBOLS)
 
-# Make the Password
+# --- CREATE THE PASSWORD ---
 
-for x in range(len(CHAR_TYPES)):
-    password_list.append(CHAR_TYPES[x][random.randrange(len(CHAR_TYPES[x]))]) # making at least one of all the char types appear in the password
+def create_password():
+    password_list = []
 
-for x in range(pass_len - len(CHAR_TYPES)):
-    random_chartype = random.randrange(len(CHAR_TYPES))
-    password_list.append(CHAR_TYPES[random_chartype][random.randrange(len(CHAR_TYPES[random_chartype]))]) # the spaces that remained will be filled with random characteres
+    for x in range(len(CHAR_TYPES)):
+        password_list.append(CHAR_TYPES[x][random.randrange(len(CHAR_TYPES[x]))]) # making at least one of all the char types appear in the password
+
+    for x in range(pass_len - len(CHAR_TYPES)):
+        random_chartype = random.randrange(len(CHAR_TYPES))
+        password_list.append(CHAR_TYPES[random_chartype][random.randrange(len(CHAR_TYPES[random_chartype]))]) # the spaces that remained will be filled with random characteres
 
 
-random.shuffle(password_list)
-password = "".join(password_list)
+    random.shuffle(password_list)
+    password = "".join(password_list)
 
-# Show Output
+    return password
 
-print("\n")
-print(f"Password: {password} ")
-print("\n")
+# --- SHOW OUTPUT ---
+
+def show_password():
+    print("\n")
+    print(f"Password: {create_password()} ")
+    print("\n")
+
+
+show_password()
+
+# --- REMAKE THE PASSWORD ---
+
+while True:
+    print("Remake the password? [Yes/No]")
+    answer = input().strip().capitalize()
+    if answer == "Yes" or answer == "No":
+        if answer == "Yes":
+            show_password()
+        else:
+            print("\n")
+            break
+    else:
+        print("\nInvalid Value.\n")
